@@ -1,13 +1,15 @@
+import styles from "./Person.module.css";
+
 const Person = (props) => {
   return (
-    <>
-      <h3>{props.name}</h3>
-      <p>{props.title}</p>
-      <p>{props.salary}</p>
-      <p>{props.phone}</p>
-      <p>{props.email}</p>
-      <p>{props.animal}</p>
-    </>
+    <div className={styles.Person}>
+      <h3 className={styles.name}>{props.name}</h3>
+      <p className={styles.title}>{props.title}</p>
+      <p className={styles.salary}>{props.salary}</p>
+      <p className={styles.phone}>{props.phone}</p>
+      <p className={styles.email}>{props.email}</p>
+      <p className={styles.animal}>{props.animal}</p>
+    </div>
   );
 };
 
