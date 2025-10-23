@@ -1,5 +1,5 @@
 const Footer = (props) => {
-  return <p>copyright @WP25K</p>;
+  return <p className="footer">copyright @WP25K</p>;
 };
 
 export default Footer;

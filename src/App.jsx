@@ -7,13 +7,15 @@ function App() {
   return (
     <>
       <Header />
-      <Person
-        name="Amy"
-        title="CEO"
-        salary="4000"
-        phone="044 238 4535"
-        animal="Cat"
-      />
+      <div className="container">
+        <Person
+          name="Amy"
+          title="CEO"
+          salary="4000"
+          phone="044 238 4535"
+          animal="Cat"
+        />
+      </div>
       <Footer />
     </>
   );

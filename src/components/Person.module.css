@@ -1,0 +1,25 @@
+.Person {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  min-width: 200px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+  min-height: 200px;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #000;
+}
+
+.title,
+.salary,
+.number,
+.animal {
+  font-size: 14px;
+}
