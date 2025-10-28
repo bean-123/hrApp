@@ -23,7 +23,7 @@ function App() {
             startDate={employee.startDate}
             location={employee.location}
             department={employee.department}
-            skills={employee.skills}
+            skills={employee.skills.join(", ")}
           />
         ))}
       </div>
