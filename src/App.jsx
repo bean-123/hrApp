@@ -17,8 +17,13 @@ function App() {
             name={employee.name}
             title={employee.title}
             salary={employee.salary}
-            age={employee.age}
+            phone={employee.phone}
+            email={employee.email}
             animal={employee.animal}
+            startDate={employee.startDate}
+            location={employee.location}
+            department={employee.department}
+            skills={employee.skills}
           />
         ))}
       </div>
