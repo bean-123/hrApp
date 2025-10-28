@@ -1,4 +1,4 @@
-import styles from "./Person.module.css";
+import styles from "./PersonCard.module.css";
 
 const Person = (props) => {
   return (
