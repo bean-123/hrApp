@@ -6,7 +6,7 @@ import Person from "./components/Person";
 function App() {
   return (
     <>
-      <Header />
+      <Header headertext="hrApp" />
       <div className="container">
         <Person
           name="Amy"
