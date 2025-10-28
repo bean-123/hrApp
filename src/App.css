@@ -9,13 +9,6 @@
   background-color: darkslategray;
 }
 
-.header {
-  padding: 20px;
-  background-color: #f3dfc1;
-  text-align: center;
-  letter-spacing: 1px;
-}
-
 .container {
   margin-top: 5px;
   padding: 9rem;
@@ -25,13 +18,4 @@
   gap: 50px;
   background-color: #f3dfc1;
   height: 55vh;
-}
-
-.footer {
-  margin-top: 5px;
-  padding: 20px;
-  background-color: #f3dfc1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
