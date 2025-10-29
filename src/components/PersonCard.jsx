@@ -12,6 +12,13 @@ const PersonCard = (props) => {
 
   const totalYears = hasHadAnniversary ? years : years - 1;
 
+  let reminderMessage = "";
+  if (totalYears < 0.5) {
+    reminderMessage = "🔔 Schedule probation review.";
+  } else if (totalYears % 5 === 0 && totalYears !== 0) {
+    reminderMessage = "🎉 Schedule recognition meeting.";
+  }
+
   return (
     <div className={styles.Person}>
       <div className={styles.maintext}>
@@ -29,6 +36,7 @@ const PersonCard = (props) => {
         <p className={styles.department}>Department: {props.department}</p>
         <p className={styles.skills}>Skills: {props.skills}</p>
       </div>
+      {reminderMessage && <p className={styles.reminder}>{reminderMessage}</p>}
     </div>
   );
 };
