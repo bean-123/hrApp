@@ -1,6 +1,6 @@
 import styles from "./PersonCard.module.css";
 
-const Person = (props) => {
+const PersonCard = (props) => {
   return (
     <div className={styles.Person}>
       <h2 className={styles.name}>{props.name}</h2>
@@ -13,10 +13,10 @@ const Person = (props) => {
         <p className={styles.startDate}>Start date: {props.startDate}</p>
         <p className={styles.location}>Location: {props.location}</p>
         <p className={styles.department}>Department: {props.department}</p>
-        <p className={styles.skills}>Department: {props.skills}</p>
+        <p className={styles.skills}>Skills: {props.skills}</p>
       </div>
     </div>
   );
 };
 
-export default Person;
+export default PersonCard;
