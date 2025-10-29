@@ -1,7 +1,6 @@
 import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import PersonCard from "./components/PersonCard";
 import data from "./data";
 import PersonList from "./components/PersonList";
 import { useState } from "react";
