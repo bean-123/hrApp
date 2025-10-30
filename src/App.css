@@ -4,19 +4,18 @@
 }
 
 #root {
-  height: 100vh;
-  width: 100vw;
   background-color: #2d3142;
   color: #2d3142;
 }
 
 .container {
   margin-top: 5px;
-  padding: 9rem;
+  padding: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 50px;
   background-color: #adacb5;
-  height: 55vh;
+  flex-wrap: wrap;
+  border-radius: 10px;
 }
