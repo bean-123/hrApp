@@ -8,7 +8,7 @@ const PersonCard = (props) => {
 
   const hasHadAnniversary =
     today.getMonth() > start.getMonth() ||
-    (today.getMonth() === start.getMonth && today.getDate() >= start.Date());
+    (today.getMonth() === start.getMonth && today.getDate() >= start.getDate());
 
   const totalYears = hasHadAnniversary ? years : years - 1;
 
@@ -18,6 +18,42 @@ const PersonCard = (props) => {
   } else if (totalYears % 5 === 0 && totalYears !== 0) {
     reminderMessage = "🎉 Schedule recognition meeting.";
   }
+
+  const animalToEmoji = {
+    Owl: "🦉",
+    Fox: "🦊",
+    Cat: "🐱",
+    Dog: "🐶",
+    Raven: "🪶",
+    Otter: "🦦",
+    Wolf: "🐺",
+    Hedgehog: "🦔",
+    Falcon: "🦅",
+    Elephant: "🐘",
+    Penguin: "🐧",
+    Rabbit: "🐇",
+    Lion: "🦁",
+    Dolphin: "🐬",
+    Koala: "🐨",
+    Tiger: "🐯",
+    Bear: "🐻",
+    Monkey: "🐒",
+    Panda: "🐼",
+    Giraffe: "🦒",
+    Horse: "🐴",
+    Pig: "🐷",
+    Chicken: "🐔",
+    Sheep: "🐑",
+    Frog: "🐸",
+    Turtle: "🐢",
+    Snake: "🐍",
+    Whale: "🐋",
+    Crocodile: "🐊",
+    Bat: "🦇",
+    Camel: "🐫",
+  };
+
+  const animalEmoji = animalToEmoji[props.animal] || "";
 
   return (
     <div className={styles.Person}>
@@ -30,7 +66,9 @@ const PersonCard = (props) => {
         <p className={styles.salary}>Salary: {props.salary}</p>
         <p className={styles.phone}>Phone: {props.phone}</p>
         <p className={styles.email}>Email: {props.email}</p>
-        <p className={styles.animal}>Animal: {props.animal}</p>
+        <p className={styles.animal}>
+          Animal: {props.animal} {animalEmoji}
+        </p>
         <p className={styles.startDate}>Start date: {props.startDate}</p>
         <p className={styles.location}>Location: {props.location}</p>
         <p className={styles.department}>Department: {props.department}</p>
