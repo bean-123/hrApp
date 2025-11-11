@@ -14,8 +14,6 @@ function App() {
     setEmployees((prev) => [...prev, newEmployee]);
   };
 
-  //need to do handleClick and setForm functions
-
   return (
     <BrowserRouter>
       <Header headertext="hrApp" />

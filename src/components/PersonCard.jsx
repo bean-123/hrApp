@@ -53,6 +53,7 @@ const PersonCard = (props) => {
     Crocodile: "🐊",
     Bat: "🦇",
     Camel: "🐫",
+    Octopus: "🐙",
   };
 
   const animalEmoji = animalToEmoji[props.animal] || "";
