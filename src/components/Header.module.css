@@ -3,7 +3,6 @@
   background-color: #adacb5;
   letter-spacing: 1px;
   border-radius: 0 0 10px 10px;
-  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,9 +21,11 @@ button {
   border-radius: 5px;
   border: none;
   cursor: pointer;
+  color: #2d3142;
+  font-weight: bolder;
 }
 
 .headertext {
   text-decoration: none;
-  color: white;
+  color: #2d3142;
 }

@@ -6,6 +6,7 @@ import PersonList from "./components/PersonList";
 import { useState } from "react";
 import AddEmployee from "./components/AddEmployee";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import About from "./components/About";
 
 function App() {
   const [employees, setEmployees] = useState(data);
@@ -20,10 +21,13 @@ function App() {
       <Routes>
         {/* Home page */}
         <Route path="/" element={<PersonList data={employees} />} />
+        {/* Add employee page */}
         <Route
           path="/add-employee"
           element={<AddEmployee handleClick={handleAddEmployee} />}
         />
+        {/* About page */}
+        <Route path="/about" element={<About />} />
       </Routes>
       <Footer />
     </BrowserRouter>
