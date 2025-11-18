@@ -58,8 +58,12 @@ const PersonCard = (props) => {
 
   const animalEmoji = animalToEmoji[props.animal] || "";
 
-  // ensure skills is always an array
-  const skills = Array.isArray(props.skills) ? props.skills : [];
+  let skills = [];
+  if (Array.isArray(props.skills)) {
+    skills = props.skills;
+  } else if (typeof props.skills === "string" && props.skills.trim() !== "") {
+    skills = props.skills.split(",").map((s) => s.trim());
+  }
 
   return (
     <div className={styles.Person}>

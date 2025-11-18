@@ -27,6 +27,9 @@ const AddEmployee = ({ employees, setEmployees }) => {
       .post("http://localhost:3001/employees", {
         id: String(employees.length + 1),
         ...formData,
+        skills: formData.skills
+          ? formData.skills.split(",").map((s) => s.trim())
+          : [],
       })
       .then((response) => {
         setEmployees([...employees, response.data]); // update the state
