@@ -87,6 +87,7 @@ const PersonCard = (props) => {
         <p className={styles.location}>Location: {props.location}</p>
         <p className={styles.department}>Department: {props.department}</p>
         <p className={styles.skills}>
+          {/* Convert skills to array if needed; display as comma-separated list or "None" if empty */}
           Skills: {skills.length ? skills.join(", ") : "None"}
         </p>
       </div>
