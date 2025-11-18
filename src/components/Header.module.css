@@ -1,8 +1,31 @@
-.header {
-  padding: 20px;
+.headercontainer {
+  padding: 10px 20px;
   background-color: #adacb5;
-  text-align: center;
   letter-spacing: 1px;
   border-radius: 0 0 10px 10px;
-  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.buttons {
+  display: flex;
+  position: absolute;
+  right: 30px;
+  gap: 20px;
+}
+
+button {
+  padding: 7px 15px 7px 15px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  color: #2d3142;
+  font-weight: bolder;
+}
+
+.headertext {
+  text-decoration: none;
+  color: #2d3142;
 }

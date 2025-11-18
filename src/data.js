@@ -136,7 +136,7 @@ export default [
     salary: 2600,
     phone: "045-6677889",
     email: "joonas.niemela@example.com",
-    animal: "Dog",
+    animal: "Elephant",
     startDate: "2025-09-05", // less than 2 months ago
     location: "Oulu",
     department: "Technical Support",
@@ -149,7 +149,7 @@ export default [
     salary: 6100,
     phone: "045-7788990",
     email: "topias.rautiainen@example.com",
-    animal: "Falcon",
+    animal: "Dolphin",
     startDate: "2017-02-03",
     location: "Espoo",
     department: "IT Security",

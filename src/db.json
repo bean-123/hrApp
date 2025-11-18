@@ -1,0 +1,222 @@
+{
+  "employees": [
+    {
+      "id": "1",
+      "name": "Aino Virtanen",
+      "title": "HR Manager",
+      "salary": "4200",
+      "phone": "040-1234567",
+      "email": "aino.virtanen@example.com",
+      "animal": "Owl",
+      "startDate": "2010-04-01",
+      "location": "Helsinki",
+      "department": "Human Resources",
+      "skills": [
+        "Recruiting",
+        "Communication",
+        "Employee Relations"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Mikko Laine",
+      "title": "Software Engineer",
+      "salary": "5100",
+      "phone": "050-7891234",
+      "email": "mikko.laine@example.com",
+      "animal": "Fox",
+      "startDate": "2020-09-15",
+      "location": "Espoo",
+      "department": "IT",
+      "skills": [
+        "JavaScript",
+        "React",
+        "Node.js"
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Sara Korhonen",
+      "title": "UX Designer",
+      "salary": "4600",
+      "phone": "045-2348765",
+      "email": "sara.korhonen@example.com",
+      "animal": "Cat",
+      "startDate": "2019-06-10",
+      "location": "Tampere",
+      "department": "Design",
+      "skills": [
+        "UI Design",
+        "Prototyping",
+        "User Research"
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Lauri Niemi",
+      "title": "Marketing Specialist",
+      "salary": "3800",
+      "phone": "041-6549873",
+      "email": "lauri.niemi@example.com",
+      "animal": "Raven",
+      "startDate": "2021-02-01",
+      "location": "Turku",
+      "department": "Marketing",
+      "skills": [
+        "SEO",
+        "Social Media",
+        "Copywriting"
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Emilia Heikkinen",
+      "title": "Data Analyst",
+      "salary": "4900",
+      "phone": "044-1122334",
+      "email": "emilia.heikkinen@example.com",
+      "animal": "Otter",
+      "startDate": "2022-01-20",
+      "location": "Oulu",
+      "department": "Data & Analytics",
+      "skills": [
+        "Python",
+        "SQL",
+        "Data Visualization"
+      ]
+    },
+    {
+      "id": "6",
+      "name": "Aleksi Mäkinen",
+      "title": "Systems Administrator",
+      "salary": "4700",
+      "phone": "046-2233445",
+      "email": "aleksi.makinen@example.com",
+      "animal": "Wolf",
+      "startDate": "2017-11-11",
+      "location": "Espoo",
+      "department": "IT",
+      "skills": [
+        "Linux",
+        "Networking",
+        "Security"
+      ]
+    },
+    {
+      "id": "7",
+      "name": "Noora Salonen",
+      "title": "Project Manager",
+      "salary": "5500",
+      "phone": "050-9988776",
+      "email": "noora.salonen@example.com",
+      "animal": "Hedgehog",
+      "startDate": "2015-05-05",
+      "location": "Helsinki",
+      "department": "Operations",
+      "skills": [
+        "Leadership",
+        "Budgeting",
+        "Agile Management"
+      ]
+    },
+    {
+      "id": "8",
+      "name": "Eero Koskinen",
+      "title": "Financial Analyst",
+      "salary": "4800",
+      "phone": "043-5566778",
+      "email": "eero.koskinen@example.com",
+      "animal": "Falcon",
+      "startDate": "2019-12-09",
+      "location": "Tampere",
+      "department": "Finance",
+      "skills": [
+        "Accounting",
+        "Excel",
+        "Forecasting"
+      ]
+    },
+    {
+      "id": "9",
+      "name": "Sofia Laakso",
+      "title": "Junior Frontend Developer",
+      "salary": "2900",
+      "phone": "040-9988776",
+      "email": "sofia.laakso@example.com",
+      "animal": "Cat",
+      "startDate": "2025-06-15",
+      "location": "Tampere",
+      "department": "Web Development",
+      "skills": [
+        "React",
+        "HTML",
+        "CSS",
+        "Version Control"
+      ]
+    },
+    {
+      "id": "10",
+      "name": "Oskari Peltonen",
+      "title": "Customer Support Lead",
+      "salary": "3900",
+      "phone": "040-3344556",
+      "email": "oskari.peltonen@example.com",
+      "animal": "Dog",
+      "startDate": "2018-03-22",
+      "location": "Helsinki",
+      "department": "Customer Service",
+      "skills": [
+        "Problem Solving",
+        "CRM Systems",
+        "Communication"
+      ]
+    },
+    {
+      "id": "11",
+      "name": "Joonas Niemelä",
+      "title": "IT Support Specialist",
+      "salary": "2600",
+      "phone": "045-6677889",
+      "email": "joonas.niemela@example.com",
+      "animal": "Elephant",
+      "startDate": "2025-09-05",
+      "location": "Oulu",
+      "department": "Technical Support",
+      "skills": [
+        "Troubleshooting",
+        "Customer Service",
+        "Hardware Maintenance"
+      ]
+    },
+    {
+      "id": "12",
+      "name": "Topias Rautiainen",
+      "title": "Cybersecurity Specialist",
+      "salary": "6100",
+      "phone": "045-7788990",
+      "email": "topias.rautiainen@example.com",
+      "animal": "Dolphin",
+      "startDate": "2017-02-03",
+      "location": "Espoo",
+      "department": "IT Security",
+      "skills": [
+        "Penetration Testing",
+        "Firewalls",
+        "Incident Response"
+      ]
+    },
+    {
+      "id": "13",
+      "name": "Amy",
+      "title": "CEO",
+      "salary": "10000",
+      "phone": "044 238 4535",
+      "email": "amy.platt@hotmail.com",
+      "animal": "Octopus",
+      "startDate": "2015-06-10",
+      "location": "Helsinki",
+      "department": "IT",
+      "skills": "js, react, python"
+    }
+  ]
+}
