@@ -58,37 +58,34 @@ const PersonCard = ({
   };
 
   const handleSave = () => {
+    // Convert skills string back to array before saving
+    const updatedData = {
+      ...formData,
+      skills: formData.skills.split(",").map((s) => s.trim()),
+    };
+
     axios
-      .put(`http://localhost:3001/employees/${id}`, formData)
+      .put(`http://localhost:3001/employees/${id}`, updatedData)
       .then((response) => {
-        setEmployee(response.data); // If you dont have this, it wont update it untill u refresh the page !!!!!
+        // Update employee state with saved data
+        setEmployee({
+          ...response.data,
+          skills: Array.isArray(response.data.skills)
+            ? response.data.skills
+            : typeof response.data.skills === "string"
+            ? response.data.skills.split(",").map((s) => s.trim())
+            : [],
+        });
         setIsEditing(false);
+
+        // Show confirmation message
+        setSavedMessage("Changes saved! ✅");
+        setTimeout(() => setSavedMessage(""), 2000); // disappear after 2s
       })
-      // Catch and Finally are no NEEDED, but its good
       .catch((error) => {
         console.log("Error: ", error.message);
       });
   };
-
-  useEffect(() => {
-    axios.get(`http://localhost:3001/employees/${id}`).then((response) => {
-      const data = response.data;
-      setEmployee({
-        ...data,
-        skills: Array.isArray(data.skills)
-          ? data.skills
-          : typeof data.skills === "string"
-          ? data.skills.split(",").map((s) => s.trim())
-          : [],
-      });
-      setFormData({
-        ...data,
-        skills: Array.isArray(data.skills)
-          ? data.skills.join(", ")
-          : data.skills || "",
-      });
-    });
-  }, [id]);
 
   // Calculate total years
   const start = new Date(employee.startDate);
