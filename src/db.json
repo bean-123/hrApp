@@ -206,17 +206,17 @@
       ]
     },
     {
-      "id": "13",
-      "name": "Amy",
+      "name": "Amy Platt",
       "title": "CEO",
-      "salary": "10000",
+      "salary": "11000",
       "phone": "044 238 4535",
       "email": "amy.platt@hotmail.com",
       "animal": "Octopus",
       "startDate": "2015-06-10",
       "location": "Helsinki",
       "department": "IT",
-      "skills": "js, react, python"
+      "skills": "js, react, python",
+      "id": "13"
     }
   ]
 }

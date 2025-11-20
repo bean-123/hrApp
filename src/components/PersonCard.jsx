@@ -1,25 +1,113 @@
 import styles from "./PersonCard.module.css";
+import axios from "axios";
+import { useState } from "react";
+import { useEffect } from "react";
 
-const PersonCard = (props) => {
-  const start = new Date(props.startDate);
+const PersonCard = ({
+  id,
+  name: initialName,
+  title: initialTitle,
+  salary: initialSalary,
+  phone: initialPhone,
+  email: initialEmail,
+  animal: initialAnimal,
+  startDate: initialStartDate,
+  location: initialLocation,
+  department: initialDepartment,
+  skills: initialSkills,
+  setEmployees,
+  employees,
+}) => {
+  const [employee, setEmployee] = useState({
+    name: initialName,
+    title: initialTitle,
+    salary: initialSalary,
+    phone: initialPhone,
+    email: initialEmail,
+    animal: initialAnimal,
+    startDate: initialStartDate,
+    location: initialLocation,
+    department: initialDepartment,
+    skills: Array.isArray(initialSkills)
+      ? initialSkills
+      : typeof initialSkills === "string"
+      ? initialSkills.split(",").map((s) => s.trim())
+      : [],
+  });
+
+  const [isEditing, setIsEditing] = useState(false);
+  const [formData, setFormData] = useState({
+    ...employee,
+    skills: Array.isArray(employee.skills) ? employee.skills.join(", ") : "",
+  });
+
+  const [savedMessage, setSavedMessage] = useState("");
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const toggleEdit = () => {
+    setIsEditing(!isEditing);
+    if (!isEditing) {
+      setFormData({
+        ...employee,
+        skills: employee.skills.join(", "),
+      });
+    }
+  };
+
+  const handleSave = () => {
+    axios
+      .put(`http://localhost:3001/employees/${id}`, formData)
+      .then((response) => {
+        setEmployee(response.data); // If you dont have this, it wont update it untill u refresh the page !!!!!
+        setIsEditing(false);
+      })
+      // Catch and Finally are no NEEDED, but its good
+      .catch((error) => {
+        console.log("Error: ", error.message);
+      });
+  };
+
+  useEffect(() => {
+    axios.get(`http://localhost:3001/employees/${id}`).then((response) => {
+      const data = response.data;
+      setEmployee({
+        ...data,
+        skills: Array.isArray(data.skills)
+          ? data.skills
+          : typeof data.skills === "string"
+          ? data.skills.split(",").map((s) => s.trim())
+          : [],
+      });
+      setFormData({
+        ...data,
+        skills: Array.isArray(data.skills)
+          ? data.skills.join(", ")
+          : data.skills || "",
+      });
+    });
+  }, [id]);
+
+  // Calculate total years
+  const start = new Date(employee.startDate);
   let totalYears = 0;
-
   if (!isNaN(start)) {
     const today = new Date();
     let years = today.getFullYear() - start.getFullYear();
-    const hasHadAnniversary =
+    const hadAnniversary =
       today.getMonth() > start.getMonth() ||
       (today.getMonth() === start.getMonth() &&
         today.getDate() >= start.getDate());
-    totalYears = hasHadAnniversary ? years : years - 1;
+    totalYears = hadAnniversary ? years : years - 1;
   }
 
+  // Reminder messages
   let reminderMessage = "";
-  if (totalYears < 0.5) {
-    reminderMessage = "🔔 Schedule probation review.";
-  } else if (totalYears % 5 === 0 && totalYears !== 0) {
+  if (totalYears < 0.5) reminderMessage = "🔔 Schedule probation review.";
+  else if (totalYears % 5 === 0 && totalYears !== 0)
     reminderMessage = "🎉 Schedule recognition meeting.";
-  }
 
   const animalToEmoji = {
     Owl: "🦉",
@@ -55,42 +143,145 @@ const PersonCard = (props) => {
     Camel: "🐫",
     Octopus: "🐙",
   };
+  const animalEmoji = animalToEmoji[employee.animal] || "";
 
-  const animalEmoji = animalToEmoji[props.animal] || "";
+  const skillsArray = Array.isArray(employee.skills)
+    ? employee.skills
+    : employee.skills.split(",").map((s) => s.trim());
 
-  let skills = [];
-  if (Array.isArray(props.skills)) {
-    skills = props.skills;
-  } else if (typeof props.skills === "string" && props.skills.trim() !== "") {
-    skills = props.skills.split(",").map((s) => s.trim());
+  if (isEditing) {
+    return (
+      <div className={styles.Person}>
+        <form className={styles.personinfo}>
+          <label>
+            Name:{" "}
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Title:{" "}
+            <input
+              type="text"
+              name="title"
+              value={formData.title}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Salary:{" "}
+            <input
+              type="number"
+              name="salary"
+              value={formData.salary}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Phone:{" "}
+            <input
+              type="text"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Email:{" "}
+            <input
+              type="text"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Animal:{" "}
+            <input
+              type="text"
+              name="animal"
+              value={formData.animal}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Start Date:{" "}
+            <input
+              type="date"
+              name="startDate"
+              value={formData.startDate}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Location:{" "}
+            <input
+              type="text"
+              name="location"
+              value={formData.location}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Department:{" "}
+            <input
+              type="text"
+              name="department"
+              value={formData.department}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Skills (comma-separated):{" "}
+            <input
+              type="text"
+              name="skills"
+              value={formData.skills}
+              onChange={handleChange}
+            />
+          </label>
+
+          <div className={styles.buttons}>
+            <button type="button" onClick={handleSave}>
+              Save
+            </button>
+            <button type="button" onClick={toggleEdit}>
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    );
   }
 
   return (
     <div className={styles.Person}>
       <div className={styles.maintext}>
-        <h2 className={styles.name}>{props.name}</h2>
-        <p>
+        <h2 className={styles.name}>{employee.name}</h2>
+        <p className={styles.years}>
           {totalYears} {totalYears === 1 ? "year" : "years"}
         </p>
       </div>
+
       <div className={styles.personinfo}>
-        <p className={styles.title}>Title: {props.title}</p>
-        <p className={styles.salary}>Salary: {props.salary}</p>
-        <p className={styles.phone}>Phone: {props.phone}</p>
-        <p className={styles.email}>Email: {props.email}</p>
-        <p className={styles.animal}>
-          Animal: {props.animal} {animalEmoji}
+        <p>Title: {employee.title}</p>
+        <p>Salary: {employee.salary}</p>
+        <p>Phone: {employee.phone}</p>
+        <p>Email: {employee.email}</p>
+        <p>
+          Animal: {employee.animal} {animalEmoji}
         </p>
-        <p className={styles.startDate}>
-          Start date: {props.startDate || "Not set"}
-        </p>
-        <p className={styles.location}>Location: {props.location}</p>
-        <p className={styles.department}>Department: {props.department}</p>
-        <p className={styles.skills}>
-          {/* Convert skills to array if needed; display as comma-separated list or "None" if empty */}
-          Skills: {skills.length ? skills.join(", ") : "None"}
-        </p>
+        <p>Start Date: {employee.startDate}</p>
+        <p>Location: {employee.location}</p>
+        <p>Department: {employee.department}</p>
+        <p>Skills: {skillsArray.length ? skillsArray.join(", ") : "None"}</p>
+        <button onClick={toggleEdit}>Edit</button>
       </div>
+
+      {savedMessage && <p className={styles.saved}>{savedMessage}</p>}
       {reminderMessage && <p className={styles.reminder}>{reminderMessage}</p>}
     </div>
   );
