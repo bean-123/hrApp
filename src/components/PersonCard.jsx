@@ -275,11 +275,11 @@ const PersonCard = ({
         <p>Location: {employee.location}</p>
         <p>Department: {employee.department}</p>
         <p>Skills: {skillsArray.length ? skillsArray.join(", ") : "None"}</p>
-        <button onClick={toggleEdit}>Edit</button>
       </div>
 
       {savedMessage && <p className={styles.saved}>{savedMessage}</p>}
       {reminderMessage && <p className={styles.reminder}>{reminderMessage}</p>}
+      <button onClick={toggleEdit}>Edit</button>
     </div>
   );
 };
