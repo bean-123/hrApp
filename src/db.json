@@ -35,7 +35,6 @@
       "id": "2"
     },
     {
-      "id": "3",
       "name": "Sara Korhonen",
       "title": "UX Designer",
       "salary": "4600",
@@ -49,7 +48,8 @@
         "UI Design",
         "Prototyping",
         "User Research"
-      ]
+      ],
+      "id": "3"
     },
     {
       "id": "4",
@@ -221,6 +221,22 @@
         "python"
       ],
       "id": "13"
+    },
+    {
+      "name": "Eliott Durecu",
+      "title": "Boss",
+      "salary": "60000",
+      "phone": "0343 92347",
+      "email": "eliott@france.fr",
+      "animal": "Panda",
+      "startDate": "2018-11-06",
+      "location": "Paris",
+      "department": "IT",
+      "skills": [
+        "python",
+        "math"
+      ],
+      "id": "14"
     }
   ]
 }
