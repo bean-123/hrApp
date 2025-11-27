@@ -11,11 +11,7 @@
       "startDate": "2010-04-01",
       "location": "Helsinki",
       "department": "Human Resources",
-      "skills": [
-        "Recruiting",
-        "Communication",
-        "Employee Relations"
-      ]
+      "skills": ["Recruiting", "Communication", "Employee Relations"]
     },
     {
       "name": "Mikko Laine",
@@ -27,11 +23,7 @@
       "startDate": "2020-09-15",
       "location": "Espoo",
       "department": "IT",
-      "skills": [
-        "JavaScript",
-        "React",
-        "Node.js"
-      ],
+      "skills": ["JavaScript", "React", "Node.js"],
       "id": "2"
     },
     {
@@ -44,11 +36,7 @@
       "startDate": "2019-06-10",
       "location": "Tampere",
       "department": "Design",
-      "skills": [
-        "UI Design",
-        "Prototyping",
-        "User Research"
-      ],
+      "skills": ["UI Design", "Prototyping", "User Research"],
       "id": "3"
     },
     {
@@ -62,11 +50,7 @@
       "startDate": "2021-02-01",
       "location": "Turku",
       "department": "Marketing",
-      "skills": [
-        "SEO",
-        "Social Media",
-        "Copywriting"
-      ]
+      "skills": ["SEO", "Social Media", "Copywriting"]
     },
     {
       "id": "5",
@@ -79,11 +63,7 @@
       "startDate": "2022-01-20",
       "location": "Oulu",
       "department": "Data & Analytics",
-      "skills": [
-        "Python",
-        "SQL",
-        "Data Visualization"
-      ]
+      "skills": ["Python", "SQL", "Data Visualization"]
     },
     {
       "id": "6",
@@ -96,11 +76,7 @@
       "startDate": "2017-11-11",
       "location": "Espoo",
       "department": "IT",
-      "skills": [
-        "Linux",
-        "Networking",
-        "Security"
-      ]
+      "skills": ["Linux", "Networking", "Security"]
     },
     {
       "id": "7",
@@ -113,11 +89,7 @@
       "startDate": "2015-05-05",
       "location": "Helsinki",
       "department": "Operations",
-      "skills": [
-        "Leadership",
-        "Budgeting",
-        "Agile Management"
-      ]
+      "skills": ["Leadership", "Budgeting", "Agile Management"]
     },
     {
       "id": "8",
@@ -130,11 +102,7 @@
       "startDate": "2019-12-09",
       "location": "Tampere",
       "department": "Finance",
-      "skills": [
-        "Accounting",
-        "Excel",
-        "Forecasting"
-      ]
+      "skills": ["Accounting", "Excel", "Forecasting"]
     },
     {
       "id": "9",
@@ -147,12 +115,7 @@
       "startDate": "2025-06-15",
       "location": "Tampere",
       "department": "Web Development",
-      "skills": [
-        "React",
-        "HTML",
-        "CSS",
-        "Version Control"
-      ]
+      "skills": ["React", "HTML", "CSS", "Version Control"]
     },
     {
       "id": "10",
@@ -165,11 +128,7 @@
       "startDate": "2018-03-22",
       "location": "Helsinki",
       "department": "Customer Service",
-      "skills": [
-        "Problem Solving",
-        "CRM Systems",
-        "Communication"
-      ]
+      "skills": ["Problem Solving", "CRM Systems", "Communication"]
     },
     {
       "id": "11",
@@ -182,11 +141,7 @@
       "startDate": "2025-09-05",
       "location": "Oulu",
       "department": "Technical Support",
-      "skills": [
-        "Troubleshooting",
-        "Customer Service",
-        "Hardware Maintenance"
-      ]
+      "skills": ["Troubleshooting", "Customer Service", "Hardware Maintenance"]
     },
     {
       "id": "12",
@@ -199,11 +154,7 @@
       "startDate": "2017-02-03",
       "location": "Espoo",
       "department": "IT Security",
-      "skills": [
-        "Penetration Testing",
-        "Firewalls",
-        "Incident Response"
-      ]
+      "skills": ["Penetration Testing", "Firewalls", "Incident Response"]
     },
     {
       "name": "Amy Platt",
@@ -215,11 +166,7 @@
       "startDate": "2015-06-10",
       "location": "Helsinki",
       "department": "IT",
-      "skills": [
-        "js",
-        "react",
-        "python"
-      ],
+      "skills": ["js", "react", "python"],
       "id": "13"
     },
     {
@@ -232,26 +179,8 @@
       "startDate": "2018-11-06",
       "location": "Paris",
       "department": "IT",
-      "skills": [
-        "python",
-        "math"
-      ],
+      "skills": ["python", "math"],
       "id": "14"
-    },
-    {
-      "name": "Nathaniel Gore",
-      "title": "Head of sales",
-      "salary": "89000",
-      "phone": "024138477",
-      "email": "loverboy@wales.uk",
-      "animal": "Dog",
-      "startDate": "2021-06-09",
-      "location": "Wales",
-      "department": "Sales",
-      "skills": [
-        "great yapper"
-      ],
-      "id": "15"
     }
   ]
 }
