@@ -1,17 +1,78 @@
-# React + Vite
+# hrApp – Employee Management Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple HR management React application to view, add, edit, and delete employee records.  
+This project demonstrates React, React Router, Axios, and a JSON backend deployed via Render.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Demo](#demo)
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Backend](#backend)
+- [Frontend](#frontend)
+- [Usage](#usage)
+- [Technologies](#technologies)
+- [License](#license)
 
-## React Compiler
+## Demo
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+- **Live Frontend:** [Your Frontend URL]
+- **Live Backend:** [[Your Backend URL](https://hrapp-ukn2.onrender.com/)]
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# hrApp
+- View all employees in a clean card layout
+- Add a new employee
+- Edit existing employee details
+- Delete employees
+- Display calculated years at company and reminder messages
+- Animal icons associated with employees
+- Responsive design with separate CSS modules for styling
+
+## Backend
+
+The backend uses **JSON Server** to simulate a RESTful API.
+
+- **Server file:** `server.js`
+- **Database:** `db.json`
+
+### Running Locally
+
+```bash
+# Install dependencies
+npm install
+
+# Start the server
+npm start server
+```
+
+- API Endpoint: http://localhost:5000/employees (locally)
+
+- Supports GET, POST, PUT, PATCH, DELETE
+
+## Deployed Backend
+
+- Hosted on Render (or your deployment service)
+
+- Base URL example: https://hrapp-ukn2.onrender.com
+
+## Frontend
+
+Built using React with functional components and hooks.
+State management is done using useState and data fetching with a custom Axios hook useAxios.
+
+## Technologies
+
+- React
+
+- React Router
+
+- Axios / Custom Hook (useAxios)
+
+- CSS Modules
+
+- JSON Server
+
+- Vite (frontend build tool)
+
+- Render (frontend & backend deployment)
