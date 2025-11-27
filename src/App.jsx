@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -5,13 +6,12 @@ import PersonList from "./components/PersonList";
 import AddEmployee from "./components/AddEmployee";
 import About from "./components/About";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
 import axios from "axios";
 
 function App() {
   const [employees, setEmployees] = useState([]);
 
-  // Fetch employees from JSON server
+  // Fetch employees from backend
   useEffect(() => {
     axios
       .get("https://hrapp-ukn2.onrender.com/employees")
@@ -22,23 +22,25 @@ function App() {
   return (
     <BrowserRouter>
       <Header headertext="hrApp" />
-
       <Routes>
-        {/* Home page*/}
-        <Route path="/" element={<PersonList data={employees} />} />
-
-        {/* Add employee page */}
+        <Route
+          path="/"
+          element={
+            <PersonList
+              data={employees}
+              employees={employees}
+              setEmployees={setEmployees}
+            />
+          }
+        />
         <Route
           path="/add-employee"
           element={
             <AddEmployee employees={employees} setEmployees={setEmployees} />
           }
         />
-
-        {/* About page */}
         <Route path="/about" element={<About />} />
       </Routes>
-
       <Footer />
     </BrowserRouter>
   );

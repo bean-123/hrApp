@@ -1,7 +1,6 @@
-import styles from "./PersonCard.module.css";
+import React, { useState } from "react";
 import axios from "axios";
-import { useState } from "react";
-import { useEffect } from "react";
+import styles from "./PersonCard.module.css";
 
 const PersonCard = ({
   id,
@@ -40,7 +39,6 @@ const PersonCard = ({
     ...employee,
     skills: Array.isArray(employee.skills) ? employee.skills.join(", ") : "",
   });
-
   const [savedMessage, setSavedMessage] = useState("");
 
   const handleChange = (e) => {
@@ -57,17 +55,29 @@ const PersonCard = ({
     }
   };
 
+  const handleDelete = () => {
+    if (window.confirm(`Are you sure you want to delete ${employee.name}?`)) {
+      axios
+        .delete(`https://hrapp-ukn2.onrender.com/employees/${id}`)
+        .then(() => {
+          // Remove the employee from local state
+          setEmployees(employees.filter((emp) => emp.id !== id));
+        })
+        .catch((err) => console.error("Error deleting employee:", err));
+    }
+  };
+
   const handleSave = () => {
-    // Convert skills string back to array before saving
     const updatedData = {
       ...formData,
-      skills: formData.skills.split(",").map((s) => s.trim()),
+      skills: formData.skills
+        ? formData.skills.split(",").map((s) => s.trim())
+        : [],
     };
 
     axios
       .put(`https://hrapp-ukn2.onrender.com/employees/${id}`, updatedData)
       .then((response) => {
-        // Update employee state with saved data
         setEmployee({
           ...response.data,
           skills: Array.isArray(response.data.skills)
@@ -76,18 +86,21 @@ const PersonCard = ({
             ? response.data.skills.split(",").map((s) => s.trim())
             : [],
         });
-        setIsEditing(false);
 
-        // Show confirmation message
+        // Update parent state
+        const updatedEmployees = employees.map((emp) =>
+          emp.id === id ? response.data : emp
+        );
+        setEmployees(updatedEmployees);
+
+        setIsEditing(false);
         setSavedMessage("Changes saved! ✅");
-        setTimeout(() => setSavedMessage(""), 2000); // disappear after 2s
+        setTimeout(() => setSavedMessage(""), 2000);
       })
-      .catch((error) => {
-        console.log("Error: ", error.message);
-      });
+      .catch((error) => console.error("Error saving employee:", error));
   };
 
-  // Calculate total years
+  // Calculate years worked
   const start = new Date(employee.startDate);
   let totalYears = 0;
   if (!isNaN(start)) {
@@ -140,8 +153,8 @@ const PersonCard = ({
     Camel: "🐫",
     Octopus: "🐙",
   };
-  const animalEmoji = animalToEmoji[employee.animal] || "";
 
+  const animalEmoji = animalToEmoji[employee.animal] || "";
   const skillsArray = Array.isArray(employee.skills)
     ? employee.skills
     : employee.skills.split(",").map((s) => s.trim());
@@ -279,7 +292,12 @@ const PersonCard = ({
 
       {savedMessage && <p className={styles.saved}>{savedMessage}</p>}
       {reminderMessage && <p className={styles.reminder}>{reminderMessage}</p>}
-      <button onClick={toggleEdit}>Edit</button>
+      <div className={styles.buttons}>
+        <button onClick={toggleEdit}>Edit</button>
+        <button type="button" onClick={handleDelete}>
+          Delete
+        </button>
+      </div>
     </div>
   );
 };

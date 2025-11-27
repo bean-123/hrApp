@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import styles from "./AddEmployee.module.css";
 
@@ -23,16 +23,18 @@ const AddEmployee = ({ employees, setEmployees }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const newEmployee = {
+      id: String(employees.length + 1), // simple ID generation
+      ...formData,
+      skills: formData.skills
+        ? formData.skills.split(",").map((s) => s.trim())
+        : [],
+    };
+
     axios
-      .post("https://hrapp-ukn2.onrender.com/employees", {
-        id: String(employees.length + 1),
-        ...formData,
-        skills: formData.skills
-          ? formData.skills.split(",").map((s) => s.trim())
-          : [],
-      })
+      .post("https://hrapp-ukn2.onrender.com/employees", newEmployee)
       .then((response) => {
-        setEmployees([...employees, response.data]); // update the state
+        setEmployees([...employees, response.data]); // update parent state
         setFormData({
           name: "",
           title: "",

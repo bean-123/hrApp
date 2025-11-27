@@ -40,3 +40,7 @@
   text-align: center;
   padding: 10px;
 }
+
+.buttons {
+  display: flex;
+}

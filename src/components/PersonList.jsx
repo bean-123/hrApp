@@ -1,10 +1,15 @@
 import PersonCard from "./PersonCard";
 
-const PersonList = ({ data }) => {
+const PersonList = ({ data, employees, setEmployees }) => {
   return (
     <div className="container">
-      {data.map((employee, index) => (
-        <PersonCard key={index} {...employee} />
+      {data.map((employee) => (
+        <PersonCard
+          key={employee.id}
+          {...employee}
+          employees={employees}
+          setEmployees={setEmployees}
+        />
       ))}
     </div>
   );
