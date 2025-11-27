@@ -24,7 +24,7 @@ const AddEmployee = ({ employees, setEmployees }) => {
     e.preventDefault();
 
     const newEmployee = {
-      id: String(employees.length + 1), // simple ID generation
+      id: String(employees.length + 1), // ID generation
       ...formData,
       skills: formData.skills
         ? formData.skills.split(",").map((s) => s.trim())
