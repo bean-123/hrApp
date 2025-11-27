@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import axios from "axios";
 import styles from "./PersonCard.module.css";
+import useAxios from "../hooks/useAxios";
 
 const PersonCard = ({
   id,
@@ -14,9 +14,11 @@ const PersonCard = ({
   location: initialLocation,
   department: initialDepartment,
   skills: initialSkills,
-  setEmployees,
   employees,
+  setEmployees,
 }) => {
+  const { put, del } = useAxios();
+
   const [employee, setEmployee] = useState({
     name: initialName,
     title: initialTitle,
@@ -39,6 +41,7 @@ const PersonCard = ({
     ...employee,
     skills: Array.isArray(employee.skills) ? employee.skills.join(", ") : "",
   });
+
   const [savedMessage, setSavedMessage] = useState("");
 
   const handleChange = (e) => {
@@ -55,52 +58,43 @@ const PersonCard = ({
     }
   };
 
-  const handleDelete = () => {
-    if (window.confirm(`Are you sure you want to delete ${employee.name}?`)) {
-      axios
-        .delete(`https://hrapp-ukn2.onrender.com/employees/${id}`)
-        .then(() => {
-          // Remove the employee from local state
-          setEmployees(employees.filter((emp) => emp.id !== id));
-        })
-        .catch((err) => console.error("Error deleting employee:", err));
+  const handleSave = async () => {
+    const updatedData = {
+      ...formData,
+      skills: formData.skills.split(",").map((s) => s.trim()),
+    };
+
+    try {
+      const response = await put(
+        `https://hrapp-ukn2.onrender.com/employees/${id}`,
+        updatedData
+      );
+      setEmployee({
+        ...response.data,
+        skills: Array.isArray(response.data.skills)
+          ? response.data.skills
+          : typeof response.data.skills === "string"
+          ? response.data.skills.split(",").map((s) => s.trim())
+          : [],
+      });
+      setIsEditing(false);
+      setSavedMessage("Changes saved! ✅");
+      setTimeout(() => setSavedMessage(""), 2000);
+    } catch (error) {
+      console.error("Error saving changes:", error);
     }
   };
 
-  const handleSave = () => {
-    const updatedData = {
-      ...formData,
-      skills: formData.skills
-        ? formData.skills.split(",").map((s) => s.trim())
-        : [],
-    };
-
-    axios
-      .put(`https://hrapp-ukn2.onrender.com/employees/${id}`, updatedData)
-      .then((response) => {
-        setEmployee({
-          ...response.data,
-          skills: Array.isArray(response.data.skills)
-            ? response.data.skills
-            : typeof response.data.skills === "string"
-            ? response.data.skills.split(",").map((s) => s.trim())
-            : [],
-        });
-
-        // Update parent state
-        const updatedEmployees = employees.map((emp) =>
-          emp.id === id ? response.data : emp
-        );
-        setEmployees(updatedEmployees);
-
-        setIsEditing(false);
-        setSavedMessage("Changes saved! ✅");
-        setTimeout(() => setSavedMessage(""), 2000);
-      })
-      .catch((error) => console.error("Error saving employee:", error));
+  const handleDelete = async () => {
+    try {
+      await del(`https://hrapp-ukn2.onrender.com/employees/${id}`);
+      setEmployees(employees.filter((emp) => emp.id !== id));
+    } catch (error) {
+      console.error("Error deleting employee:", error);
+    }
   };
 
-  // Calculate years worked
+  // Calculate total years
   const start = new Date(employee.startDate);
   let totalYears = 0;
   if (!isNaN(start)) {
@@ -292,11 +286,10 @@ const PersonCard = ({
 
       {savedMessage && <p className={styles.saved}>{savedMessage}</p>}
       {reminderMessage && <p className={styles.reminder}>{reminderMessage}</p>}
+
       <div className={styles.buttons}>
         <button onClick={toggleEdit}>Edit</button>
-        <button type="button" onClick={handleDelete}>
-          Delete
-        </button>
+        <button onClick={handleDelete}>Delete</button>
       </div>
     </div>
   );

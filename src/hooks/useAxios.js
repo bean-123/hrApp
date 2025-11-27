@@ -1,26 +1,12 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
 
-const useAxios = (url, method = "get") => {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+const useAxios = () => {
+  const get = (url) => axios.get(url);
+  const post = (url, data) => axios.post(url, data);
+  const put = (url, data) => axios.put(url, data);
+  const del = (url) => axios.delete(url);
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await axios[method](url);
-        setData(response.data);
-        setLoading(false); // need to be after the data
-      } catch (error) {
-        setError(error);
-        setLoading(false); // need to be after the error
-      }
-    }
-    fetchData(); // call the function
-  }, [url]);
-
-  return { data, loading, error };
+  return { get, post, put, del };
 };
 
 export default useAxios;
