@@ -65,7 +65,7 @@ const PersonCard = ({
     };
 
     axios
-      .put(`http://localhost:3001/employees/${id}`, updatedData)
+      .put(`https://hrapp-ukn2.onrender.com/employees/${id}`, updatedData)
       .then((response) => {
         // Update employee state with saved data
         setEmployee({

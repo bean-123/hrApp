@@ -24,7 +24,7 @@ const AddEmployee = ({ employees, setEmployees }) => {
     e.preventDefault();
 
     axios
-      .post("http://localhost:3001/employees", {
+      .post("https://hrapp-ukn2.onrender.com/employees", {
         id: String(employees.length + 1),
         ...formData,
         skills: formData.skills

@@ -237,6 +237,21 @@
         "math"
       ],
       "id": "14"
+    },
+    {
+      "name": "Nathaniel Gore",
+      "title": "Head of sales",
+      "salary": "89000",
+      "phone": "024138477",
+      "email": "loverboy@wales.uk",
+      "animal": "Dog",
+      "startDate": "2021-06-09",
+      "location": "Wales",
+      "department": "Sales",
+      "skills": [
+        "great yapper"
+      ],
+      "id": "15"
     }
   ]
 }

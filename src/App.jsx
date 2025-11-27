@@ -14,7 +14,7 @@ function App() {
   // Fetch employees from JSON server
   useEffect(() => {
     axios
-      .get("http://localhost:3001/employees")
+      .get("https://hrapp-ukn2.onrender.com/employees")
       .then((res) => setEmployees(res.data))
       .catch((err) => console.error("Error fetching employees:", err));
   }, []);
