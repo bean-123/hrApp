@@ -7,12 +7,9 @@ This project demonstrates React, React Router, Axios, and a JSON backend deploye
 
 - [Demo](#demo)
 - [Features](#features)
-- [Project Structure](#project-structure)
 - [Backend](#backend)
 - [Frontend](#frontend)
-- [Usage](#usage)
 - [Technologies](#technologies)
-- [License](#license)
 
 ## Demo
 
