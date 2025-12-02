@@ -16,7 +16,7 @@ This project demonstrates React, React Router, Axios, and a JSON backend deploye
 
 ## Demo
 
-- **Live Frontend:** [[Frontend URL] (https://hrapp-1-9wcn.onrender.com/)]
+- **Live Frontend:** [[Frontend URL](https://hrapp-1-9wcn.onrender.com/)]
 - **Live Backend:** [[Backend URL](https://hrapp-ukn2.onrender.com/)]
 
 ## Features
